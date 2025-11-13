@@ -1,8 +1,5 @@
 import { pages } from './../po/';
-import LoginPage from './../po/pages/login.page';
 import { expect } from '@wdio/globals';
-
-const loginPage = new LoginPage();
 
 describe('Login Page', () => {
     beforeEach(async () => {
