@@ -3,7 +3,7 @@ export default class BasePage {
         this.url = url;
     }
 
-    open() {
-        browser.url(this.url);
+    async open() {
+        await browser.url(this.url);
     }
 }

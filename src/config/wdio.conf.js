@@ -46,7 +46,7 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 2,
+    maxInstances: 3,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -54,12 +54,24 @@ export const config = {
     //
     capabilities: [
         {
-            browserName: 'firefox'
+            browserName: 'firefox',
+            "moz:firefoxOptions": {
+                args: ['-headless']
+            },
+            maxInstances: 2,
         },
         {
-            browserName: 'MicrosoftEdge'
+            browserName: 'MicrosoftEdge',
+            "ms:edgeOptions": {
+                args: ['--headless', '--disable-gpu']
+            },
+            maxInstances: 1,
         }
     ],
+
+    before: function () {
+        browser.setTimeout({ pageLoad: 20000, implicit: 5000 });  // page load and implicit wait
+    },
 
     //
     // ===================
@@ -97,6 +109,8 @@ export const config = {
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
+    // check every 500ms for waiting commands
+    waitforInterval: 500, 
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response

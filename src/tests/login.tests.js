@@ -1,13 +1,13 @@
 import { pages } from './../po/';
 import { expect } from '@wdio/globals';
 
-describe('Login Page', () => {
+describe('Login functionality', () => {
     beforeEach(async () => {
         await pages('login').open();
         
     });
 
-    it('Test Login form with empty credentials', async () => { 
+    it('Given user is on login page, When user tries empty login, Then error should appear', async () => { 
         await pages('login').usernameInput.setValue(process.env.USER_USERNAME);
         await pages('login').passwordInput.setValue(process.env.USER_PASSWORD);
 
@@ -20,7 +20,7 @@ describe('Login Page', () => {
         expect(errorMsg).toHaveText(expect.stringContaining('Username is required'));
     });
 
-    it('Test Login form with credentials by passing Username', async () => {
+    it('Given user is on login page, When user tries to log with empty password field, Then error should appear', async () => {
         await pages('login').usernameInput.setValue(process.env.USER_USERNAME);
         await pages('login').passwordInput.setValue(process.env.USER_PASSWORD);
             
@@ -32,7 +32,7 @@ describe('Login Page', () => {
         expect(errorMsg).toHaveText(expect.stringContaining('Password is required'));
     });
 
-    it('Test Login form with credentials by passing Username & Password', async () => {
+    it('Given user logs in succesfully, When providing the right credentials, Then should return page title', async () => {
         await pages('login').usernameInput.setValue(process.env.USER_USERNAME);
         await pages('login').passwordInput.setValue(process.env.USER_PASSWORD);
         await pages('login').loginBtn.click();

@@ -1,3 +1,10 @@
+This project uses a .env file for configuration.
+To set it up, create your own .env file based on the provided example:
+Duplicate the .env.example file
+Rename the copy to .env
+Fill in the required values inside .env
+
+
 Task description
 
 Launch URL: https://www.saucedemo.com/
