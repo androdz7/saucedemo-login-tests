@@ -1,9 +1,41 @@
-This project uses a .env file for configuration.
-To set it up, create your own .env file based on the provided example:
-Duplicate the .env.example file
-Rename the copy to .env
-Fill in the required values inside .env
+## Overview:
+- This project automates login functionality tests for the SauceDemo application: https://www.saucedemo.com/
 
+## Features:
+- Login validation tests:
+  - Empty username & password (UC-1)
+  - Empty password (UC-2)
+  - Successful login (UC-3)
+- Product page verification after authentication
+- Page Object Model (POM) structure
+- Data-driven test support
+- Parallel execution support
+- Cross-browser testing (Edge & Firefox)
+- Centralized logging with **Winston**
+
+
+
+
+## Environment Variables
+- This project uses a `.env` file for configuration.
+
+- To set it up:
+  1. Duplicate `.env.example`
+  2. Rename the copy to `.env`
+  3. Fill in required values (username, password, base URL, timeout)
+
+
+## Logging
+- The project uses **Winston** for structured test logging.
+
+- Log output is written to: /logs/tests.log
+
+- Logs include:
+  - test start & finish messages  
+  - validation checkpoints  
+  - warnings & errors  
+
+-----------------------------------------
 
 Task description
 

@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "edgedriver": "^6.1.2",
-    "geckodriver": "^6.0.2"
+    "geckodriver": "^6.0.2",
+    "winston": "^3.18.3"
   }
 }
